@@ -8,7 +8,6 @@ use Auth;
 
 class PostsController extends Controller
 {
-    //
     public function getIndex(Request $request)
     {
         // 调用Post模型定义的方法

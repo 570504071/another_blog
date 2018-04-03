@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //
     protected $table = 'posts';
 
     protected $fillable = ['title', 'content', 'author_id'];
@@ -15,8 +14,6 @@ class Post extends Model
 
     public function author()
     {
-
         return $this->belongsTo('User', 'author_id');
     }
-
 }
