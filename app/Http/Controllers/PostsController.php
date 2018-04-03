@@ -16,12 +16,12 @@ class PostsController extends Controller
         return view('index')->with('posts', $posts);
     }
 
-    public function getAdmin(Request $request)
+    public function showAddForm(Request $request)
     {
-        return view('addpost');
+        return view('add');
     }
 
-    public function postAdd(Request $request)
+    public function add(Request $request)
     {
         Post::create([
             'title' => $request->input('title'),
