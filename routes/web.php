@@ -11,6 +11,18 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::get('/', 'PostsController@getIndex')->name('index');
+
+Route::get('/admin', 'PostsController@getAdmin')->name('admin_area');
+
+Route::post('/add', 'PostsController@postAdd')->name('add_new_post');
+
+Route::post('/login', 'UsersController@postLogin')->name('login');
+
+Route::get('/logout', 'UsersController@getLogout')->name('logout');
