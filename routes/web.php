@@ -19,10 +19,12 @@ Route::get('/', function () {
 
 Route::get('/', 'PostsController@getIndex')->name('index');
 
-Route::get('/admin', 'PostsController@getAdmin')->name('admin_area');
+Route::get('admin', 'PostsController@getAdmin')->name('admin_area');
 
-Route::post('/add', 'PostsController@postAdd')->name('add_new_post');
+Route::post('add', 'PostsController@postAdd')->name('add_new_post');
 
-Route::post('/login', 'UsersController@postLogin')->name('login');
+Route::get('login', 'UsersController@getLogin')->name('getlogin');
 
-Route::get('/logout', 'UsersController@getLogout')->name('logout');
+Route::post('login', 'UsersController@postLogin')->name('postlogin');
+
+Route::get('logout', 'UsersController@getLogout')->name('logout');
