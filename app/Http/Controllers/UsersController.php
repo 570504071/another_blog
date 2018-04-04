@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Post;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
@@ -37,7 +38,7 @@ class UsersController extends Controller
             'password' => Hash::make($request->input('password')),
         ]);
 
-        return redirect()->route('get_login');
+        return redirect()->route('login');
     }
 
     public function showLoginForm(Request $request)
@@ -53,10 +54,16 @@ class UsersController extends Controller
             'password' => $request->input('password'),
             ]))
         {
-            return redirect()->route('get_add');
+            return redirect()->route('user_profile');
         }
 
-        return redirect()->route('get_login');
+        return redirect()->route('login');
+    }
+
+    public function profile(Request $request)
+    {
+        $person_post = Post::with('author')->orderBy('id', 'DESC')->get();
+        return view('profile')->with('posts',$person_post);
     }
 
     public function logout()
