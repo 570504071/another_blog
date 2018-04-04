@@ -44,9 +44,9 @@ class UsersController extends Controller
     public function login(Request $request)
     {
         if(Auth::attempt([
-                'name' => $request::input('name');
-                'email' => $request::input('email');
-            ])
+                'name' => $request::input('name'),
+                'email' => $request::input('email'),
+            ]))
         {
             return redirect()->to('get_add');
         }
