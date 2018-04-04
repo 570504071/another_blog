@@ -16,6 +16,10 @@
         <form class="m-t" role="form" action="{{ route('post_signup') }}" method="POST" @submit="submit">
             {!! csrf_field() !!}
             <div class="form-group" :class="{ 'has-error': form.phone && !isPhoneValidated, 'has-success': isPhoneValidated }">
+                <input name="name" type="text" class="form-control" placeholder="your name" v-model="form.name" autocomplete=off required>
+            </div>
+
+            <div class="form-group" :class="{ 'has-error': form.phone && !isPhoneValidated, 'has-success': isPhoneValidated }">
                 <input name="email" type="text" class="form-control" placeholder="电子邮箱" v-model="form.email" autocomplete="signup-email" required>
             </div>
 
