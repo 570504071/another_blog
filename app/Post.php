@@ -14,6 +14,7 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsTo('User', 'author_id');
+        // 以下User类不能直接调用'User'，需要指明'App\User'
+        return $this->belongsTo('App\User', 'author_id');
     }
 }
