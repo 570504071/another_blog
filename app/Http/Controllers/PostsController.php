@@ -28,6 +28,6 @@ class PostsController extends Controller
             'author_id' => Auth::user()->id,
         ]);
 
-        return redirect()->to('index');
+        return redirect()->route('index');
     }
 }
