@@ -15,7 +15,7 @@ Route::get('/', 'PostsController@getIndex')->name('index');
 
 Route::get('signup', 'UsersController@showSignupForm')->name('get_signup');
 
-Route::post('signup', 'UserController@signup')->name('post_signup');
+Route::post('signup', 'UsersController@signup')->name('post_signup');
 
 Route::get('login', 'UsersController@showLoginForm')->name('get_login');
 
