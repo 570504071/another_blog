@@ -6,6 +6,7 @@
 </head>
 <body>
 <section class="container">
+    @if(Auth::check())
     <div class="content">
         <h1>这里是添加文章页面，欢迎您的投稿， {{Auth::user()->name}} ! - <b>这里是退出按钮</b></h1>
         <form name="add_post" method="POST" action="{{ route('post_add') }}">
@@ -15,4 +16,9 @@
             <p><input type="submit" name="submit" /></p>
         </form>
     </div>
+    @else
+        <div>
+            <h1>please <a href="{{ route('get_login') }} ">login</a></h1>
+        </div>
+    @endif
 </section>

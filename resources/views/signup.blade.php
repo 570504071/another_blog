@@ -1,5 +1,3 @@
-<html>
-<body>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +6,9 @@
     <meta name="renderer" content="webkit">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> 欢迎注册！ </title>
-    <link href="{{ version('/inspinia/css/bundle.css') }}" rel="stylesheet">
-    <link href="{{ version('/inspinia/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+<body>
 <div id="signup" class="row" v-cloak>
     <h2>欢迎注册another_blog！</h2>
     <div class="col-sm-offset-3 col-sm-6">
