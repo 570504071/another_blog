@@ -11,20 +11,19 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
 Route::get('/', 'PostsController@getIndex')->name('index');
 
-Route::get('admin', 'PostsController@getAdmin')->name('admin_area');
+Route::get('signup', 'UsersController@showSignupForm')->name('get_signup');
 
-Route::post('add', 'PostsController@postAdd')->name('add_new_post');
+Route::post('signup', 'UserController@signup')->name('post_signup');
 
-Route::get('login', 'UsersController@getLogin')->name('getlogin');
+Route::get('login', 'UsersController@showLoginForm')->name('get_login');
 
-Route::post('login', 'UsersController@postLogin')->name('postlogin');
+Route::post('login', 'UsersController@login')->name('post_login');
 
-Route::get('logout', 'UsersController@getLogout')->name('logout');
+Route::post('logout', 'UsersController@logout')->name('logout');
+
+Route::get('add', 'PostsController@showAddForm')->name('get_add');
+
+Route::post('add', 'PostsController@add')->name('post_add');
+
