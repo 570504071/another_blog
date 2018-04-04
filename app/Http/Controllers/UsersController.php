@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -32,7 +33,8 @@ class UsersController extends Controller
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => $request->input('password'),
+            // 密码是需要加密的，也可以定义在模型中方便复用
+            'password' => Hash::make($request->input('password')),
         ]);
 
         return redirect()->route('get_login');
@@ -45,9 +47,10 @@ class UsersController extends Controller
 
     public function login(Request $request)
     {
+        // dd($request->all());
         if(Auth::attempt([
-                'password' => $request->input('password'),
-                'email' => $request->input('email'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
             ]))
         {
             return redirect()->route('get_add');
